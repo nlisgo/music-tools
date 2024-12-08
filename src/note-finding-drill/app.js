@@ -58,6 +58,7 @@ function allFrequencies(octaves) {
             interval += 1;
         }
     }
+    console.log(frequencies);
 
     return frequencies;
 }
@@ -117,6 +118,7 @@ function speakPitch(pitch) {
     const restOfPitch = pitch.slice(1);
     const speechText = `${letterPronunciation}${restOfPitch ? " " + formatPitchForSpeech(restOfPitch) : ""}`;
     const utterance = new SpeechSynthesisUtterance(speechText);
+    utterance.lang = "en-US"; // Ensure consistent pronunciation across platforms
     speechSynthesis.speak(utterance);
 
     // Log the pitch to the console if debug mode is enabled
