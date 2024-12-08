@@ -65,7 +65,7 @@ function allFrequencies(octaves) {
     for (let octave = 1; octave <= octaves; octave++) {
         for (let i = 0; i < pitches.length; i++) {
             const frequency = (baseFrequency * Math.pow(Math.pow(2, 1 / 12), interval)).toFixed(2);
-            const variants = [pitches[i], ...(pitches[i].slice(-1) === 'x' ? [`${pitches[(i + 1) % pitches.length]}b`] : [])];
+            const variants = [pitches[i], ...(pitches[i].slice(-1) === '#' ? [`${pitches[(i + 1) % pitches.length]}b`] : [])];
 
             frequencies.push({
                 pitch: variants[Math.floor(Math.random() * variants.length)],
