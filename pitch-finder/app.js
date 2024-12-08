@@ -182,6 +182,7 @@ function stopIntervals() {
 // Toggle button to "Start"
 function toggleButtonToStart() {
     isRunning = false;
+    stringSelector.disabled = false;
     button.innerText = "Start";
     stopIntervals();
 }
@@ -189,6 +190,7 @@ function toggleButtonToStart() {
 // Toggle button to "Stop"
 function toggleButtonToStop() {
     isRunning = true;
+    stringSelector.disabled = true;
     button.innerText = "Stop";
 }
 
@@ -197,12 +199,10 @@ function toggleSession() {
     if (isRunning) {
         toggleButtonToStart();
         pitchDisplay.innerText = ""; // Clear display when stopped
-        stringSelector.disabled = false;
     } else {
         initializeTone(); // Ensure Tone.js is started
         toggleButtonToStop();
         startPitchAnnouncements();
-        stringSelector.disabled = true;
     }
 }
 
