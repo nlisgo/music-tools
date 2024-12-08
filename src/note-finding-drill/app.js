@@ -5,6 +5,26 @@ let shuffledPitches = [];
 let debugMode = false; // Debug mode flag
 let selectedString = "E"; // Default to the low E string
 
+const pitchSpeak = {
+    A: 'ay', // Phonetic hint for "A"
+    'A#': 'A sharp',
+    'Bb': 'B flat',
+    B: 'bee', // Phonetic hint for "B"
+    C: 'see', // Phonetic hint for "C"
+    'C#': 'C sharp',
+    'Db': 'D flat',
+    D: 'dee', // Phonetic hint for "D"
+    'D#': 'D sharp',
+    'Eb': 'E flat',
+    E: 'ee', // Phonetic hint for "E"
+    F: 'eff', // Phonetic hint for "F"
+    'F#': 'F sharp',
+    'Gb': 'G flat',
+    G: 'gee', // Phonetic hint for "G"
+    'G#': 'G sharp',
+    'Ab': 'A flat',
+};
+
 const button = document.getElementById("start-stop-button");
 const bpmInput = document.getElementById("bpm");
 const pitchDisplay = document.getElementById("current-pitch");
@@ -58,7 +78,10 @@ function allFrequencies(octaves) {
             interval += 1;
         }
     }
-    console.log(frequencies);
+
+    if (debugMode) {
+        console.log(frequencies);
+    }
 
     return frequencies;
 }
@@ -114,11 +137,8 @@ function shuffleArray(array) {
 
 // Speak a pitch using the Web Speech API
 function speakPitch(pitch) {
-    const letterPronunciation = pitch[0].toUpperCase();
-    const restOfPitch = pitch.slice(1);
-    const speechText = `${letterPronunciation}${restOfPitch ? " " + formatPitchForSpeech(restOfPitch) : ""}`;
+    const speechText = formatPitchForSpeech(pitch);
     const utterance = new SpeechSynthesisUtterance(speechText);
-    utterance.lang = "en-US"; // Ensure consistent pronunciation across platforms
     speechSynthesis.speak(utterance);
 
     // Log the pitch to the console if debug mode is enabled
@@ -130,11 +150,8 @@ function speakPitch(pitch) {
     setTimeout(() => playPitchSound(pitch), 3000);
 }
 
-// Format pitch for speech (replace "b" with "flat" and "#" with "sharp")
 function formatPitchForSpeech(pitch) {
-    if (pitch.includes("#")) return pitch.replace("#", " sharp");
-    if (pitch.includes("b")) return pitch.replace("b", " flat");
-    return pitch;
+    return pitchSpeak[pitch];
 }
 
 // Play the note sound using Tone.js
