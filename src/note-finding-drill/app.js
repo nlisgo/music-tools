@@ -16,7 +16,7 @@ const pitchSpeak = {
     D: 'dee', // Phonetic hint for "D"
     'D#': 'D sharp',
     'Eb': 'E flat',
-    E: 'eey', // Phonetic hint for "E"
+    E: 'ee', // Phonetic hint for "E"
     F: 'eff', // Phonetic hint for "F"
     'F#': 'F sharp',
     'Gb': 'G flat',
