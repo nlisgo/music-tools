@@ -7,7 +7,7 @@ let selectedString = "E"; // Default to the low E string
 
 const pitchSpeak = {
     A: 'ay', // Phonetic hint for "A"
-    'A#': 'A sharp',
+    'A#': 'ay sharp',
     'Bb': 'B flat',
     B: 'bee', // Phonetic hint for "B"
     C: 'see', // Phonetic hint for "C"
@@ -16,7 +16,7 @@ const pitchSpeak = {
     D: 'dee', // Phonetic hint for "D"
     'D#': 'D sharp',
     'Eb': 'E flat',
-    E: 'ee', // Phonetic hint for "E"
+    E: 'eey', // Phonetic hint for "E"
     F: 'eff', // Phonetic hint for "F"
     'F#': 'F sharp',
     'Gb': 'G flat',
