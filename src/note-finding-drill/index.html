@@ -23,20 +23,6 @@
         </select>
     </div>
 
-    <!-- BPM Control -->
-    <!-- <div class="flex items-center gap-2 mb-4">
-        <label for="bpm" class="text-lg">BPM:</label>
-        <input
-            id="bpm"
-            type="number"
-            value="60"
-            min="40"
-            max="200"
-            class="border border-gray-700 bg-gray-800 text-white py-1 px-3 rounded shadow-sm w-20"
-        >
-    </div> -->
-    <input type="hidden" id="bpm" value="60" />
-
     <!-- Start/Stop Button -->
     <button id="start-stop-button" class="bg-blue-500 hover:bg-blue-600 text-white py-2 px-4 rounded shadow-md transition">
         Start
@@ -50,8 +36,19 @@
         ← Back to Dashboard
     </a>
 
+    <!-- Affiliate Link Section -->
+    <footer class="mt-12 text-center">
+        <p class="text-sm text-gray-400">
+            This exercise is featured in Volume 2 of
+            <a href="https://amzn.to/4gkSIRY" target="_blank" rel="noopener noreferrer"
+               class="text-indigo-400 hover:text-indigo-300 underline">
+               Music Theory for Guitarists
+            </a>.
+        </p>
+    </footer>
+
     <!-- Tone.js and App Script -->
-    <script src="https://unpkg.com/tone"></script>
+    <script src="http://unpkg.com/tone"></script>
     <script src="app.js"></script>
 </body>
 </html>
