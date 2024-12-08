@@ -151,7 +151,7 @@ function speakPitch(pitch) {
 }
 
 function formatPitchForSpeech(pitch) {
-    return pitchSpeak[pitch];
+    return pitchSpeak[pitch] || pitch;
 }
 
 // Play the note sound using Tone.js
